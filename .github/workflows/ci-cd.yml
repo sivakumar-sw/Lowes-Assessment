@@ -19,7 +19,7 @@ jobs:
         tags: your-docker-registry/sample-app:latest
 
     - name: Deploy to Kubernetes
-      uses: steebchen/kubectl@v1
+      uses: ghostzero/kubectl@v1
       with:
         args: apply -f k8s/sample-app.yaml
       env:
