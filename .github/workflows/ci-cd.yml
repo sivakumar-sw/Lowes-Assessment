@@ -16,9 +16,9 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2:$(echo $GITHUB_SHA | head -c7)
+      uses: docker/setup-buildx-action@v2
     - name: Build and push Docker image
-      uses: docker/build-push-action@v4:$(echo $GITHUB_SHA | head -c7)
+      uses: docker/build-push-action@v4
       with:
         context: .
         file: ./Dockerfile
@@ -27,6 +27,6 @@ jobs:
     - name: Deploy to Kubernetes
       uses: ghostzero/kubectl@v1
       with:
-        args: apply -f ./sample-app.yaml
+        args: kubectl apply -f sample-app.yaml
       env:
         KUBECONFIG: ${{ secrets.KUBECONFIG }}
