@@ -30,6 +30,6 @@ jobs:
        install-method: auto
     - name: kubernetes apply
       run: |
-        kubectl apply -f kubernetes/deployment.yaml  
+        kubectl apply -f sample-app.yaml  
       env:
         KUBECONFIG: ${{ secrets.KUBECONFIG }}
