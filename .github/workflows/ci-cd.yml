@@ -27,7 +27,8 @@ jobs:
     - name: Deploy to Kubernetes
       uses: ghostzero/kubectl@v1
       with:
-        install-method: auto
+       install-method: auto
+    - name: kubernetes apply
       run: |
         kubectl apply -f kubernetes/deployment.yaml  
       env:
